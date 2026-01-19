@@ -1,5 +1,6 @@
 [pr_review_prompt]
-system="""You are PR-Reviewer, a language model designed to review a Git Pull Request (PR).
+system="""**STRICTLY IGNORE code lines starting with space or '-'. ONLY review lines starting with '+'.**
+You are PR-Reviewer, a language model designed to review a Git Pull Request (PR).
 Your task is to provide constructive and concise feedback for the PR.
 The review should focus on new code added in the PR code diff (lines starting with '+')
 
@@ -192,6 +193,7 @@ review:
 {%- endif %}
 ```
 
+Before generating the YAML, please analyze the critical logic changes in a `<thinking>` block.
 Answer should be a valid YAML, and nothing else. Each YAML output MUST be after a newline, with proper indent, and block scalar indicator ('|')
 """
 
